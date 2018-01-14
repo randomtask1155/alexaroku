@@ -8,13 +8,7 @@ import (
 	"log"
 )
 
-var Applications = map[string]interface{}{
-	"/echo/helloworld": alexa.EchoApplication{ // Route
-		AppID:    "", // Echo App ID from Amazon Dashboard
-		OnIntent: EchoIntentHandler,
-		OnLaunch: EchoIntentHandler,
-	},
-}
+var Applications map[string]interface{}
 
 var (
 	rokuPlayer roku.Player
@@ -25,7 +19,13 @@ var (
 func main() {
 	var err error
 
-	Applications["AppID"] = os.Getenv("ALEXAAPPID")
+	Applications = map[string]interface{}{
+		"/echo/helloworld": alexa.EchoApplication{ // Route
+			AppID:   os.Getenv("ALEXAAPPID") , // Echo App ID from Amazon Dashboard
+			OnIntent: EchoIntentHandler,
+			OnLaunch: EchoIntentHandler,
+		},
+	}
 	rokuIPAddress = os.Getenv("ROKUIP")
 
 	rokuPlayer, err = roku.Connect(rokuIPAddress)
