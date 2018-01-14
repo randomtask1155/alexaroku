@@ -1,0 +1,22 @@
+{
+  "intents": [
+    {
+      "intent": "KeyPress",
+      "slots": [
+        {
+          "name": "Command",
+          "type": "LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "PickChannel",
+      "slots": [
+        {
+          "name": "Channel",
+          "type": "LITERAL"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+	"ImportPath": "github.com/randomtask1155/alexaroku",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/codegangsta/negroni",
+			"Comment": "v0.3.0-9-gff85fb0",
+			"Rev": "ff85fb036d90eda8518001242fcded1024e05c98"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.6.0-8-g5bbbb5b",
+			"Rev": "5bbbb5b2b5729b132181cc7f4aa3b3c973e9a0ed"
+		},
+		{
+			"ImportPath": "github.com/mikeflynn/go-alexa/skillserver",
+			"Rev": "c9b58851edc2d81606baca10cf667fffd762e543"
+		}
+	]
+}
