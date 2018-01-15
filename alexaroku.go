@@ -42,6 +42,7 @@ func PerformKeyPress(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		log.Println(err)
 		echoResp.OutputSpeech("i do not understand the command")
 	}
+	success := true
 	log.Printf("Kepressed: %s\n", key)
 	switch key {
 	case "home":
@@ -66,6 +67,10 @@ func PerformKeyPress(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.Play()
 	default:
 		echoResp.OutputSpeech("that key does not exist")
+		success = false
+	}
+	if success {
+		echoResp.OutputSpeech(fmt.Sprintf("pressing %s", key))
 	}
 }
 
@@ -75,6 +80,7 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		log.Println(err)
 		echoResp.OutputSpeech(fmt.Sprintf("i could not find channel %s", channel))
 	}
+	success := true
 	switch channel {
 	case "netflix":
 		rokuPlayer.StartChannel(roku.Netflix)
@@ -90,6 +96,11 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.StartChannel(roku.USTVNow)
 	default:
 		echoResp.OutputSpeech("I do not know that channel")
+		success = false
+	}
+
+	if success {
+		echoResp.OutputSpeech(fmt.Sprintf("starting channel %s", channel))
 	}
 }
 
