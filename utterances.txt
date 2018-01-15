@@ -12,6 +12,15 @@ KeyPress press {enter|Command}
 KeyPress hit {enter|Command}
 KeyPress to press {enter|Command}
 KeyPress to hit {enter|Command}
+KeyPress to {play|Command}
+KeyPress to go {play|Command}
+KeyPress go {play|Command}
+KeyPress to {pause|Command}
+KeyPress to go {pause|Command}
+KeyPress go {pause|Command}
+KeyPress to {search|Command}
+KeyPress go {search|Command}
+KeyPress to go {search|Command}
 PickChannel start {netfilx|Channel}
 PickChannel open {netfilx|Channel}
 PickChannel to start {netfilx|Channel}

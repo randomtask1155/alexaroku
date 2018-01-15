@@ -20,7 +20,7 @@ func main() {
 	var err error
 
 	Applications = map[string]interface{}{
-		"/echo/helloworld": alexa.EchoApplication{ // Route
+		"/echo/roku": alexa.EchoApplication{ // Route
 			AppID:   os.Getenv("ALEXAAPPID") , // Echo App ID from Amazon Dashboard
 			OnIntent: EchoIntentHandler,
 			OnLaunch: EchoIntentHandler,
@@ -55,9 +55,15 @@ func PerformKeyPress(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	case "right":
 		rokuPlayer.Right()
 	case "enter":
-		rokuPlayer.OK()
+		rokuPlayer.Select() // select is like the ok button
 	case "back":
 		rokuPlayer.Back()
+	case "search":
+		rokuPlayer.Search()
+	case "pause":
+		rokuPlayer.Play() // play pauses too
+	case "play":
+		rokuPlayer.Play()
 	default:
 		echoResp.OutputSpeech("that key does not exist")
 	}
