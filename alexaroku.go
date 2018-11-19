@@ -1,18 +1,19 @@
 package main
 
 import (
-	alexa "github.com/mikeflynn/go-alexa/skillserver"
-	"os"
-	roku "github.com/randomtask1155/rokuremote"
 	"fmt"
 	"log"
+	"os"
+
+	alexa "github.com/mikeflynn/go-alexa/skillserver"
+	roku "github.com/randomtask1155/rokuremote"
 )
 
 var Applications map[string]interface{}
 
 var (
-	rokuPlayer roku.Player
-	appID string
+	rokuPlayer    roku.Player
+	appID         string
 	rokuIPAddress string
 )
 
@@ -21,7 +22,7 @@ func main() {
 
 	Applications = map[string]interface{}{
 		"/echo/roku": alexa.EchoApplication{ // Route
-			AppID:   os.Getenv("ALEXAAPPID") , // Echo App ID from Amazon Dashboard
+			AppID:    os.Getenv("ALEXAAPPID"), // Echo App ID from Amazon Dashboard
 			OnIntent: EchoIntentHandler,
 			OnLaunch: EchoIntentHandler,
 		},
@@ -74,6 +75,7 @@ func PerformKeyPress(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	}
 }
 
+// SelectChannel opens the given channel
 func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	channel, err := echoReq.GetSlotValue("Channel")
 	if err != nil {
@@ -104,6 +106,7 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	}
 }
 
+// EchoIntentHandler determine intent
 func EchoIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	//err := rokuPlayer.Home()
 	//if err != nil {
