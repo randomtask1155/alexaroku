@@ -5,7 +5,7 @@
       "slots": [
         {
           "name": "Command",
-          "type": "LITERAL"
+          "type": "AMAZON.SearchQuery"
         }
       ]
     },
@@ -14,7 +14,7 @@
       "slots": [
         {
           "name": "Channel",
-          "type": "LITERAL"
+          "type": "AMAZON.SearchQuery"
         }
       ]
     }

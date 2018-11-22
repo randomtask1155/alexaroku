@@ -1,63 +1,14 @@
-KeyPress to go {home|Command}
-KeyPress go {home|Command}
-KeyPress to go {up|Command}
-KeyPress go {up|Command}
-KeyPress to go {down|Command}
-KeyPress go {down|Command}
-KeyPress to go {left|Command}
-KeyPress go {left|Command}
-KeyPress to go {right|Command}
-KeyPress go {right|Command}
-KeyPress press {enter|Command}
-KeyPress hit {enter|Command}
-KeyPress to press {enter|Command}
-KeyPress to hit {enter|Command}
-KeyPress to {play|Command}
-KeyPress to go {play|Command}
-KeyPress go {play|Command}
-KeyPress to {pause|Command}
-KeyPress to go {pause|Command}
-KeyPress go {pause|Command}
-KeyPress to {search|Command}
-KeyPress go {search|Command}
-KeyPress to go {search|Command}
-PickChannel start {netfilx|Channel}
-PickChannel open {netfilx|Channel}
-PickChannel to start {netfilx|Channel}
-PickChannel to open {netfilx|Channel}
-PickChannel start channel {netfilx|Channel}
-PickChannel open channel {netfilx|Channel}
-PickChannel to start channel {netfilx|Channel}
-PickChannel to open channel {netfilx|Channel}
-PickChannel start {hulu|Channel}
-PickChannel open {hulu|Channel}
-PickChannel to start {hulu|Channel}
-PickChannel to open {hulu|Channel}
-PickChannel start channel {hulu|Channel}
-PickChannel open channel {hulu|Channel}
-PickChannel to start channel {hulu|Channel}
-PickChannel to open channel {hulu|Channel}
-PickChannel start {amazon|Channel}
-PickChannel open {amazon|Channel}
-PickChannel to start {amazon|Channel}
-PickChannel to open {amazon|Channel}
-PickChannel start channel {amazon|Channel}
-PickChannel open channel {amazon|Channel}
-PickChannel to start channel {amazon|Channel}
-PickChannel to open channel {amazon|Channel}
-PickChannel start {plex|Channel}
-PickChannel open {plex|Channel}
-PickChannel to start {plex|Channel}
-PickChannel to open {plex|Channel}
-PickChannel start channel {plex|Channel}
-PickChannel open channel {plex|Channel}
-PickChannel to start channel {plex|Channel}
-PickChannel to open channel {plex|Channel}
-PickChannel start channel {movies|Channel}
-PickChannel open channel {movies|Channel}
-PickChannel to start channel {movies|Channel}
-PickChannel to open channel {movies|Channel}
-PickChannel start channel {television|Channel}
-PickChannel open channel {television|Channel}
-PickChannel to start channel {television|Channel}
-PickChannel to open channel {television|Channel}
+KeyPress to go {Command}
+KeyPress go {Command}
+KeyPress to press {Command}
+KeyPress press {Command}
+KeyPress to hit {Command}
+KeyPress hit {Command}
+PickChannel start {Channel}
+PickChannel open {Channel}
+PickChannel to start {Channel}
+PickChannel to open {Channel}
+PickChannel start channel {Channel}
+PickChannel open channel {Channel}
+PickChannel to start channel {Channel}
+PickChannel to open channel {Channel}

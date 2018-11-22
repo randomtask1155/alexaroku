@@ -92,12 +92,25 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.StartChannel(roku.Hulu)
 	case "movies":
 		rokuPlayer.StartChannel(roku.HBO)
+	case "HBO":
+		rokuPlayer.StartChannel(roku.HBO)
+	case "h b o":
+		rokuPlayer.StartChannel(roku.HBO)
 	case "plex":
 		rokuPlayer.StartChannel(roku.Plex)
 	case "television":
 		rokuPlayer.StartChannel(roku.USTVNow)
+	case "p b s":
+		rokuPlayer.StartChannel(roku.PBS)
+	case "PBS":
+		rokuPlayer.StartChannel(roku.PBS)
+	case "nick":
+		rokuPlayer.StartChannel(roku.NickJR)
+	case "disney":
+		rokuPlayer.StartChannel(roku.Disney)
 	default:
 		echoResp.OutputSpeech("I do not know that channel")
+		fmt.Printf("Unknown channel: %s\n", channel)
 		success = false
 	}
 
@@ -122,10 +135,15 @@ func EchoIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse)
 			PerformKeyPress(echoReq, echoResp)
 		case "PickChannel":
 			SelectChannel(echoReq, echoResp)
+		case "AMAZON.NavigateHomeIntent":
+			rokuPlayer.Home() // why? because amazon is stupid
+			echoResp.OutputSpeech(fmt.Sprintf("pressing home"))
 		default:
-			echoResp.OutputSpeech("Sorry you must have bad intentinos and refuse your request").Card("Failure", "Invalid Intent")
+			fmt.Printf("Invalid Intent: %s\n", echoReq.GetIntentName())
+			echoResp.OutputSpeech("Sorry you must have bad intentions and refuse your request").Card("Failure", "Invalid Intent")
 		}
 	} else {
+		fmt.Printf("%v\n", echoReq)
 		echoResp.OutputSpeech("I am sorry but roku does not understand your request").Card("Failure", "Invalid request")
 	}
 
