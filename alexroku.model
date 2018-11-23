@@ -1,0 +1,187 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "roku",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "KeyPress",
+                    "slots": [
+                        {
+                            "name": "Command",
+                            "type": "ROKU_Command"
+                        }
+                    ],
+                    "samples": [
+                        "hit {Command}",
+                        "to hit {Command}",
+                        "to press {Command}",
+                        "press {Command}",
+                        "go {Command}",
+                        "to go {Command}"
+                    ]
+                },
+                {
+                    "name": "PickChannel",
+                    "slots": [
+                        {
+                            "name": "Channel",
+                            "type": "ROKU_Channel"
+                        }
+                    ],
+                    "samples": [
+                        "start {Channel}",
+                        "open {Channel}",
+                        "to start {Channel}",
+                        "to open {Channel}",
+                        "start channel {Channel}",
+                        "open channel {Channel}",
+                        "to start channel {Channel}",
+                        "to open channel {Channel}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "ROKU_Command",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "down"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "up"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "enter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ok"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "right"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "left"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "home"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ROKU_Channel",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "CBS"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "c. b. s."
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "you tube"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "disney"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "nick"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "p. b. s."
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "PBS"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "television"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "plex"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "h. b. o."
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "HBO"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "movies"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hulu"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "amazon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "netflix"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

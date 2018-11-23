@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	alexa "github.com/mikeflynn/go-alexa/skillserver"
 	roku "github.com/randomtask1155/rokuremote"
@@ -84,6 +85,7 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		echoResp.OutputSpeech(fmt.Sprintf("i could not find channel %s", channel))
 	}
 	success := true
+	channel = strings.ToLower(channel)
 	switch channel {
 	case "netflix":
 		rokuPlayer.StartChannel(roku.Netflix)
@@ -93,7 +95,7 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.StartChannel(roku.Hulu)
 	case "movies":
 		rokuPlayer.StartChannel(roku.HBO)
-	case "HBO":
+	case "hbo":
 		rokuPlayer.StartChannel(roku.HBO)
 	case "h b o":
 		rokuPlayer.StartChannel(roku.HBO)
@@ -103,7 +105,7 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.StartChannel(roku.USTVNow)
 	case "p b s":
 		rokuPlayer.StartChannel(roku.PBS)
-	case "PBS":
+	case "pbs":
 		rokuPlayer.StartChannel(roku.PBS)
 	case "nick":
 		rokuPlayer.StartChannel(roku.NickJR)
@@ -113,7 +115,7 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.StartChannel(roku.YouTube)
 	case "you tube":
 		rokuPlayer.StartChannel(roku.YouTube)
-	case "CBS":
+	case "cbs":
 		rokuPlayer.StartChannel(roku.CBS)
 	case "c b s":
 		rokuPlayer.StartChannel(roku.CBS)
