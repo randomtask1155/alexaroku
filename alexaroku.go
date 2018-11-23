@@ -9,6 +9,7 @@ import (
 	roku "github.com/randomtask1155/rokuremote"
 )
 
+// Applications defined apps
 var Applications map[string]interface{}
 
 var (
@@ -108,6 +109,14 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.StartChannel(roku.NickJR)
 	case "disney":
 		rokuPlayer.StartChannel(roku.Disney)
+	case "youtube":
+		rokuPlayer.StartChannel(roku.YouTube)
+	case "you tube":
+		rokuPlayer.StartChannel(roku.YouTube)
+	case "CBS":
+		rokuPlayer.StartChannel(roku.CBS)
+	case "c b s":
+		rokuPlayer.StartChannel(roku.CBS)
 	default:
 		echoResp.OutputSpeech("I do not know that channel")
 		fmt.Printf("Unknown channel: %s\n", channel)
