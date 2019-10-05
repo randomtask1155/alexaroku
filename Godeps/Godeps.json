@@ -1,7 +1,7 @@
 {
 	"ImportPath": "github.com/randomtask1155/alexaroku",
-	"GoVersion": "go1.8",
-	"GodepVersion": "v79",
+	"GoVersion": "go1.12",
+	"GodepVersion": "v80",
 	"Deps": [
 		{
 			"ImportPath": "github.com/codegangsta/negroni",
@@ -16,6 +16,10 @@
 		{
 			"ImportPath": "github.com/mikeflynn/go-alexa/skillserver",
 			"Rev": "c9b58851edc2d81606baca10cf667fffd762e543"
+		},
+		{
+			"ImportPath": "github.com/randomtask1155/rokuremote",
+			"Rev": "280c18562676ffdbf55baed290a05b213f1a03c9"
 		}
 	]
 }

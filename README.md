@@ -67,3 +67,39 @@ ln -s /etc/nginx/sites-available/domain.net /etc/nginx/sites-enabled/domain.net
 ```
 sudo nginx restart
 ```
+
+
+
+# Building docker image
+
+```
+./build.sh
+```
+
+# deploy in k8s
+
+## create secrets 
+
+generate base64 encoded scripts for ALEXAAPPID and ROKUIP
+
+```
+echo 123 | base64
+```
+
+populate the alexarokukeys.secret.yml with the base4 values and apply the file
+
+```
+kubectl apply -f alexarokukeys.secret.yml
+```
+
+## deploy the app
+
+```
+kubectl apply -f alexaroku-deployment.yml
+```
+
+## deploy ingress
+
+```
+kubectl apply -f alexaroku-ingress.yml
+```

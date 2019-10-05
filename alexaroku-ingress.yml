@@ -1,0 +1,15 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: alexaroku-ingress
+  annotations:
+#    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /echo/roku
+          backend:
+            serviceName: alexaroku
+            servicePort: 3000
