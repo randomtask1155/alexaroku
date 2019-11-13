@@ -110,7 +110,7 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 	case "nick":
 		rokuPlayer.StartChannel(roku.NickJR)
 	case "disney":
-		rokuPlayer.StartChannel(roku.Disney)
+		rokuPlayer.StartChannel(roku.DisneyPlus)
 	case "youtube":
 		rokuPlayer.StartChannel(roku.YouTube)
 	case "you tube":

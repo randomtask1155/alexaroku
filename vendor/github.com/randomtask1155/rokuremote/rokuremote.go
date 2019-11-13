@@ -24,7 +24,7 @@ const (
 	AmazonPrime = 13
 	USTVNow     = 2026
 	PBS         = 23333
-	Disney      = 2157
+	DisneyPlus  = 291097
 	NickJR      = 66595
 	YouTube     = 837
 	CBS         = 27536
