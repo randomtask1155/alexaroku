@@ -17,9 +17,11 @@ spec:
         app: alexaroku
     spec:
       containers:
-      - image: randomtask1155/alexaroku:1.0
+      - image: randomtask1155/alexaroku
         name: alexaroku
         env:
+          - name: PORT
+            value: "8080"
           - name: ALEXAAPPID
             valueFrom:
               secretKeyRef:
