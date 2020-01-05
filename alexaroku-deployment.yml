@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: alexaroku
+  name: alexaroku
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alexaroku
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: alexaroku
+    spec:
+      containers:
+      - image: randomtask1155/alexaroku
+        name: alexaroku
+        env:
+          - name: PORT
+            value: "8080"
+          - name: ALEXAAPPID
+            valueFrom:
+              secretKeyRef:
+                name: alexarokukeys
+                key: ALEXAAPPID
+          - name: ROKUIP
+            valueFrom:
+              secretKeyRef:
+                name: alexarokukeys
+                key: ROKUIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alexaroku
+spec:
+  selector:
+    app: alexaroku
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 8080
+  type: NodePort
+
+

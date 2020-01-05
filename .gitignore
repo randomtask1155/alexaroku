@@ -2,3 +2,5 @@ env.sh
 ssl
 alexaroku
 .idea
+build
+secrets.prod.yml
