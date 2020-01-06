@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strings"
+	"net/http"
 
 	alexa "github.com/mikeflynn/go-alexa/skillserver"
 	roku "github.com/randomtask1155/rokuremote"
@@ -17,16 +18,21 @@ var (
 	rokuPlayer    roku.Player
 	appID         string
 	rokuIPAddress string
+	rc *RemoteSession
 )
 
 func main() {
 	var err error
 
+	rc = NewRemoteSession()
+	go rc.cleaner()
+
 	Applications = map[string]interface{}{
 		"/echo/roku": alexa.EchoApplication{ // Route
 			AppID:    os.Getenv("ALEXAAPPID"), // Echo App ID from Amazon Dashboard
-			OnIntent: EchoIntentHandler,
-			OnLaunch: EchoIntentHandler,
+			//OnIntent: EchoIntentHandler,
+			//OnLaunch: EchoIntentHandler,
+			Handler: EchoIntentHandler,
 		},
 	}
 	rokuIPAddress = os.Getenv("ROKUIP")
@@ -131,12 +137,16 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 }
 
 // EchoIntentHandler determine intent
-func EchoIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
+//func EchoIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
+func EchoIntentHandler(w http.ResponseWriter, r *http.Request) {
+	echoReq := alexa.GetEchoRequest(r)
+	echoResp := alexa.NewEchoResponse().OutputSpeech("I am sorry but roku does not understand your request").EndSession(true)
 	//err := rokuPlayer.Home()
 	//if err != nil {
 	//	fmt.Println(err)
 	//}
 	//echoResp.OutputSpeech("Hello world from my new Echo test app!").Card("Hello World", "This is a test card.")
+
 
 	if echoReq.GetRequestType() == "IntentRequest" {
 		log.Println(echoReq.GetIntentName())
@@ -146,6 +156,10 @@ func EchoIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse)
 			PerformKeyPress(echoReq, echoResp)
 		case "PickChannel":
 			SelectChannel(echoReq, echoResp)
+		case "StartRemote":
+			echoResp = rc.startController(echoReq, echoReq.GetSessionID())
+		case "RemoteControl":
+			echoResp = rc.ExecuteCommand(echoReq, echoReq.GetSessionID())
 		case "AMAZON.NavigateHomeIntent":
 			rokuPlayer.Home() // why? because amazon is stupid
 			echoResp.OutputSpeech(fmt.Sprintf("pressing home"))
@@ -153,9 +167,18 @@ func EchoIntentHandler(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse)
 			fmt.Printf("Invalid Intent: %s\n", echoReq.GetIntentName())
 			echoResp.OutputSpeech("Sorry you must have bad intentions and refuse your request").Card("Failure", "Invalid Intent")
 		}
+	} else if echoReq.GetRequestType() == "LaunchRequest" {
+		echoResp = rc.startController(echoReq, echoReq.GetSessionID())
+		log.Println("received launch request")
+	} else if echoReq.GetRequestType() == "SessionEndedRequest" {
+		rc.ExpireSession(echoReq.GetSessionID())
+		echoResp.OutputSpeech("stopping remote control")
 	} else {
+		log.Println(echoReq.GetRequestType())
 		fmt.Printf("%v\n", echoReq)
 		echoResp.OutputSpeech("I am sorry but roku does not understand your request").Card("Failure", "Invalid request")
 	}
-
+	json, _ := echoResp.String()
+	w.Header().Set("Content-Type", "application/json;charset=UTF-8")
+	w.Write(json)
 }

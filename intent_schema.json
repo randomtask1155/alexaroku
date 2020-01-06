@@ -1,22 +1,224 @@
 {
-  "intents": [
-    {
-      "intent": "KeyPress",
-      "slots": [
-        {
-          "name": "Command",
-          "type": "AMAZON.SearchQuery"
-        }
-      ]
-    },
-    {
-      "intent": "PickChannel",
-      "slots": [
-        {
-          "name": "Channel",
-          "type": "AMAZON.SearchQuery"
-        }
-      ]
-    }
-  ]
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "roku",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "KeyPress",
+                  "slots": [
+                      {
+                          "name": "Command",
+                          "type": "ROKU_Command"
+                      }
+                  ],
+                  "samples": [
+                      "to hit {Command}",
+                      "to press {Command}",
+                      "to go {Command}"
+                  ]
+              },
+              {
+                  "name": "PickChannel",
+                  "slots": [
+                      {
+                          "name": "Channel",
+                          "type": "ROKU_Channel"
+                      }
+                  ],
+                  "samples": [
+                      "start {Channel}",
+                      "open {Channel}",
+                      "to start {Channel}",
+                      "to open {Channel}",
+                      "start channel {Channel}",
+                      "open channel {Channel}",
+                      "to start channel {Channel}",
+                      "to open channel {Channel}"
+                  ]
+              },
+              {
+                  "name": "RemoteControl",
+                  "slots": [
+                      {
+                          "name": "Command",
+                          "type": "ROKU_Command"
+                      }
+                  ],
+                  "samples": [
+                      "{Command} session ",
+                      "{Command} remote control",
+                      "{Command} controller",
+                      "hit {Command}",
+                      "press {Command}",
+                      "move {Command}"
+                  ]
+              },
+              {
+                  "name": "StartRemote",
+                  "slots": [],
+                  "samples": [
+                      "to begin remote",
+                      "to begin remote controller",
+                      "to begin remote control",
+                      "to activate remote",
+                      "to activate remote control",
+                      "to activate remote controller",
+                      "to activate controller"
+                  ]
+              }
+          ],
+          "types": [
+              {
+                  "name": "ROKU_Command",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "stop"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "end"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "down"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "up"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "enter"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "ok"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "right"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "left"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "home"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "ROKU_Channel",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "CBS"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "c. b. s."
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "you tube"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "disney"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "nick"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "p. b. s."
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "PBS"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "television"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "plex"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "h. b. o."
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "HBO"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "movies"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "hulu"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "amazon"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "netflix"
+                          }
+                      }
+                  ]
+              }
+          ]
+      }
+  }
 }
