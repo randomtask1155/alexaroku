@@ -1,9 +1,6 @@
 KeyPress to go {Command}
-KeyPress go {Command}
 KeyPress to press {Command}
-KeyPress press {Command}
 KeyPress to hit {Command}
-KeyPress hit {Command}
 PickChannel start {Channel}
 PickChannel open {Channel}
 PickChannel to start {Channel}
@@ -12,3 +9,17 @@ PickChannel start channel {Channel}
 PickChannel open channel {Channel}
 PickChannel to start channel {Channel}
 PickChannel to open channel {Channel}
+RemoteControl move {Command}
+RemoteControl press {Command}
+RemoteControl hit {Command}
+RemoteControl {Command} controller
+RemoteControl {Command} remote control
+RemoteControl {Command} session 
+StartRemote to activate controller
+StartRemote to activate remote controller
+StartRemote to activate remote control
+StartRemote to activate remote 
+StartRemote to begin remote control 
+StartRemote to begin remote controller
+StartRemote to begin remote
+
