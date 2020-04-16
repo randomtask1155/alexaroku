@@ -1,6 +1,4 @@
-KeyPress to go {Command}
-KeyPress to press {Command}
-KeyPress to hit {Command}
+KeyPress please execute {Command}
 PickChannel start {Channel}
 PickChannel open {Channel}
 PickChannel to start {Channel}
@@ -22,4 +20,3 @@ StartRemote to activate remote
 StartRemote to begin remote control 
 StartRemote to begin remote controller
 StartRemote to begin remote
-
