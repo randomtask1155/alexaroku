@@ -28,6 +28,7 @@ const (
 	NickJR      = 66595
 	YouTube     = 837
 	CBS         = 27536
+	PARAMOUNT   = 31440
 )
 
 func Connect(ip string) (Player, error) {

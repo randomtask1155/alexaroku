@@ -125,6 +125,8 @@ func SelectChannel(echoReq *alexa.EchoRequest, echoResp *alexa.EchoResponse) {
 		rokuPlayer.StartChannel(roku.CBS)
 	case "c b s":
 		rokuPlayer.StartChannel(roku.CBS)
+	case "paramount":
+		rokuPlayer.StartChannel(roku.PARAMOUNT)
 	default:
 		echoResp.OutputSpeech("I do not know that channel")
 		fmt.Printf("Unknown channel: %s\n", channel)
