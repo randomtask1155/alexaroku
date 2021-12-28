@@ -6,10 +6,14 @@ metadata:
   annotations:
 #    ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
-        - path: /echo/roku
-          backend:
-            serviceName: alexaroku
-            servicePort: 3000
+      - backend:
+          service:
+            name: alexaroku
+            port:
+              number: 3000
+        path: /echo/roku
+        pathType: ImplementationSpecific
